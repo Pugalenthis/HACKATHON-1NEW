@@ -1,7 +1,7 @@
 async function foo() {
     try {
         
-        setTimeout(()=>{alert("please wait for a couple of minutes...It is loading longer than usual")},10000) 
+        setTimeout(()=>{alert("please wait...It is loading longer than usual")},5000) 
         
         let res = await fetch("https://makeup-api.herokuapp.com/api/v1/products.json")
 
