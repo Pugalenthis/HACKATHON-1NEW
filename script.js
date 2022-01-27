@@ -1,19 +1,30 @@
-async function foo() {
-    try {
-        
-        setTimeout(()=>{alert("please wait...It is loading longer than usual")},5000) 
-        
-        let res = await fetch("https://makeup-api.herokuapp.com/api/v1/products.json")
 
 
-        let result = await res.json()
-        console.log(result)
+      
+      async function foo() {
+        try {
 
-        let container = document.createElement("div")
-        container.setAttribute("class", "container")
-        document.body.append(container)
+          setTimeout(() => { alert("please wait...It is loading longer than usual") }, 5000)
 
-        for (var i = 1; i < result.length; i++) {
+          let res = await fetch("https://makeup-api.herokuapp.com/api/v1/products.json")
+
+
+          let result = await res.json()
+          console.log(result)
+
+          // let container = document.createElement("div")
+          // container.setAttribute("class", "container")
+          // document.body.append(container)
+
+
+          
+
+          let same = document.getElementById("container-fluid")
+          console.log(same)
+
+          let section = document.getElementById("products")
+
+          for (var i = 1; i < result.length; i++) {
 
             let row = document.createElement("div")
             row.setAttribute("class", "row")
@@ -26,7 +37,7 @@ async function foo() {
 
             let name = document.createElement("h4")
             name.innerHTML = ` ${result[i].name}(by ${result[i].brand})`
-
+            console.log(result[i.brand])
 
             let image_link = document.createElement("img")
             image_link.setAttribute("src", `${result[i].image_link}`)
@@ -56,15 +67,13 @@ async function foo() {
             col1.append(name, price, product_link, description)
             row.append(col, col1)
 
-            container.append(row)
-            document.body.append(container)
+            section.append(row)
+            // document.body.append(container)
 
+          }
+
+        } catch (error) {
+          console.log(error)
         }
-
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-
+      }
 
