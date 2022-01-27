@@ -19,9 +19,7 @@
 
           
 
-          let same = document.getElementById("container-fluid")
-          console.log(same)
-
+         
           let section = document.getElementById("products")
 
           for (var i = 1; i < result.length; i++) {
@@ -68,7 +66,7 @@
             row.append(col, col1)
 
             section.append(row)
-            // document.body.append(container)
+            
 
           }
 
